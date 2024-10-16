@@ -140,7 +140,7 @@ def main():
     for wd in weight_decays:
         print(f'Experiment: Training with weight decay λ = {wd}')
         # Initialize the model
-        model = MobileNet(num_classes=100)  # CIFAR-100 has 100 classes
+        model = MobileNet(num_classes=100,sigmoid_block_ind=[])  # CIFAR-100 has 100 classes
         model = model.to(device)
 
         # Define loss function (criterion) and optimizer with weight decay

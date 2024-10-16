@@ -41,10 +41,10 @@ def train_model(model, dataloaders, criterion, optimizer, scheduler, num_epochs,
         # Each epoch has a training and validation phase
         for phase in ['train', 'val']:
             if phase == 'train':
-                model.train()  # Set model to training mode
+                model.train()  
                 dataloader = train_loader
             else:
-                model.eval()   # Set model to evaluate mode
+                model.eval()   
                 dataloader = valid_loader
 
             running_loss = 0.0
@@ -138,7 +138,7 @@ def main():
     # Experiment 1: Constant Learning Rate
     print('Experiment 1: Training with constant learning rate')
     # Initialize the model
-    model_const_lr = MobileNet(num_classes=100)  # CIFAR-100 has 100 classes
+    model_const_lr = MobileNet(num_classes=100, sigmoid_block_ind=[])  
     model_const_lr = model_const_lr.to(device)
 
     # Define loss function (criterion) and optimizer
@@ -184,7 +184,7 @@ def main():
     # Experiment 2: Cosine Annealing Learning Rate
     print('Experiment 2: Training with cosine annealing learning rate schedule')
     # Initialize the model
-    model_cosine_lr = MobileNet(num_classes=100)
+    model_cosine_lr = MobileNet(num_classes=100, sigmoid_block_ind=[])
     model_cosine_lr = model_cosine_lr.to(device)
 
     # Define optimizer and scheduler

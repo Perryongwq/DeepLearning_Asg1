@@ -127,7 +127,7 @@ def main():
     for lr in learning_rates:
         print(f'Running experiment with learning rate: {lr}')
         # Initialize the model
-        model = MobileNet(num_classes=100)  
+        model = MobileNet(num_classes=100, sigmoid_block_ind=[])
         model = model.to(device)
 
         # Define loss function (criterion) and optimizer
